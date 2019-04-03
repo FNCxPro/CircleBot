@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "esnext",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist",
+
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["./*"]
+    },
+
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "strictPropertyInitialization": false,
+    /* Module Resolution Options */
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "dist"]
+}
