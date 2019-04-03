@@ -10,6 +10,10 @@ client.registerCommand(
     if (!GuildCheck(msg)) return ''
     let leaderboardMessage = '```md\nCircles Leaderboard```'
     let circles = await Circle.find({
+      where: {
+        betrayed: false
+      },
+      relations: ['members'],
       order: {
         members: 'ASC'
       },

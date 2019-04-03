@@ -26,8 +26,8 @@ client.registerCommand(
     }
     embed
       .setColor(process.env.COLOR_GREEN as string)
-      .setTitle(`<@${target.id}>'s reputation`)
-      .addField('Member Of', memberOf.toString())
+      .setTitle(`${target.username}#${target.discriminator}'s reputation`)
+      .addField('Member Of', `${memberOf.toString()} circles`)
       .addField('Members Of Own Circle', membersOfCircle.toString())
       .addField('Betrayed Count', dbUser.betrayedCircles.length.toString())
       .setTimestamp()
