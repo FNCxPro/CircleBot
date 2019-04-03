@@ -1,0 +1,39 @@
+version: '3'
+services:
+  bot:
+    image: 'relativexd/circlebot:latest'
+    restart: 'unless-stopped'
+    environment:
+      BOT_TOKEN: 'bot.token'
+      BOT_OWNER: 'owner-id'
+      BOT_GUILD: 'guild-id-owned-by-bot-app'
+      BOT_GODROLE: 'guild-role-id-higher-than-everything-with-admin'
+      BOT_CATEGORY: 'guild-category-for-circles'
+
+      EMOJI_CHECK: '<:check:562933342811586581>'
+      EMOJI_CHECKID: 'check:562933342811586581'
+      EMOJI_XMARK: '<:xmark:562933343172296714>'
+      EMOJI_XMARKID: 'xmark:562933343172296714'
+
+      COLOR_RED: '#f03e3e'
+      COLOR_PURPLE: '#7048e8'
+      COLOR_GREEN: '#37b24d'
+      DATABASE_HOST: 'postgres'
+      DATABASE_PORT: '5432'
+      DATABASE_USERNAME: 'circlebot'
+      DATABASE_PASSWORD: 'changeme'
+      DATABASE_DB: 'circlebot'
+    links:
+      - postgres
+  postgres:
+    image: postgres
+    restart: 'unless-stopped'
+    environment:
+      POSTGRES_USER: circlebot
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: circlebot
+    volumes:
+      - database_data:/var/lib/postgresql/data
+volumes:
+  database_data:
+    driver: local
