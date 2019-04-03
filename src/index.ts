@@ -26,6 +26,7 @@ import '~/commands/JoinCircle'
 import '~/commands/BetrayCircle'
 import '~/commands/ResetBetrayed'
 import '~/commands/UpdateReputation'
+import '~/commands/Reputation'
 
 client.on('ready', () => {
   console.log('CircleBot is ready')
