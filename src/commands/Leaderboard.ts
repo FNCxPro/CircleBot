@@ -12,15 +12,14 @@ client.registerCommand(
     let circles = await Circle.find({
       where: {
         betrayed: false
-      },
-      relations: ['members'],
-      order: {
-        members: 'ASC'
-      },
-      take: 10
+      }
     })
+    let sorted = circles.sort((a, b) =>
+      a.members.length < b.members.length ? 1 : -1
+    )
+    sorted = sorted.slice(9)
     let index = 1
-    circles.forEach(async circle => {
+    sorted.forEach(circle => {
       let owner = client.users.get(circle.owner.id)!
       leaderboardMessage =
         leaderboardMessage +
