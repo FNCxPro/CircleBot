@@ -17,7 +17,9 @@ client.registerCommand(
     let sorted = circles.sort((a, b) =>
       a.members.length < b.members.length ? 1 : -1
     )
-    sorted = sorted.slice(9)
+    if (sorted.length > 9) {
+      sorted = sorted.slice(9)
+    }
     let index = 1
     sorted.forEach(circle => {
       let owner = client.users.get(circle.owner.id)!
