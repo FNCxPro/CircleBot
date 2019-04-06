@@ -6,7 +6,7 @@ const client = new CommandClient(
   {
     description: 'Circle bot!',
     owner: 'relative',
-    prefix: 'c!'
+    prefix: ['c!', 'C!']
   }
 )
 
