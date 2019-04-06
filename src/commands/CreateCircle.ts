@@ -24,6 +24,20 @@ client.registerCommand(
     }
     let name = args[0]
     let key = args.slice(1).join(' ')
+    let existingCircles = await Circle.find({
+      name: name
+    })
+    if (existingCircles.length > 0) {
+      let embed = new RichEmbed()
+      embed
+        .setColor(process.env.COLOR_RED as string)
+        .setTitle(`${process.env.EMOJI_XMARK} Cancelled`)
+        .setDescription(
+          'The creation of the circle has been cancelled because there is already a circle with that name.'
+        )
+        .setTimestamp()
+      return { embed }
+    }
     return `Please confirm that you want to make a circle with the following parameters:\n**Name**: \`${name}\`\n**Key**: \`${key}\``
   },
   {
@@ -57,6 +71,20 @@ client.registerCommand(
               .setTitle(`${process.env.EMOJI_XMARK} Cancelled`)
               .setDescription(
                 'The creation of the circle has been cancelled because you already have a circle.'
+              )
+              .setTimestamp()
+            return { embed }
+          }
+          let existingCircles = await Circle.find({
+            name: name
+          })
+          if (existingCircles.length > 0) {
+            let embed = new RichEmbed()
+            embed
+              .setColor(process.env.COLOR_RED as string)
+              .setTitle(`${process.env.EMOJI_XMARK} Cancelled`)
+              .setDescription(
+                'The creation of the circle has been cancelled because there is already a circle with that name.'
               )
               .setTimestamp()
             return { embed }
