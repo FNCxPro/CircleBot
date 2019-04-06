@@ -1,8 +1,8 @@
 import client from '~/client'
-import { TextChannel, Guild, Member } from 'eris'
 import RichEmbed from '~/embed'
 import OwnerCheck from '~/middleware/OwnerCheck'
-import GuildCheck from '~/middleware/GuildCheck'
+import Circle from '~/database/models/Circle'
+import User from '~/database/models/User'
 
 client.registerCommand(
   'eval',
