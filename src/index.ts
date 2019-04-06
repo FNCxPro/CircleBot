@@ -28,6 +28,7 @@ import '~/commands/ResetBetrayed'
 import '~/commands/UpdateReputation'
 import '~/commands/Reputation'
 import '~/commands/Leaderboard'
+import '~/commands/Eval'
 client.on('ready', () => {
   console.log('CircleBot is ready')
 })

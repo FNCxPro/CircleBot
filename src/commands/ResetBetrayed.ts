@@ -7,12 +7,20 @@ client.registerCommand(
   'resetbetrayed',
   async (msg, args) => {
     if (!OwnerCheck(msg)) return
-    let dbUser = await User.get(msg.author)
+    let target = msg.author
+    if (msg.mentions.length > 0) {
+      target = msg.mentions[0]
+    }
+    let dbUser = await User.get(target)
     dbUser.hasBetrayed = false
     dbUser.betrayedCircles = []
     await dbUser.save()
-    UpdateReputation(msg.author)
-    await msg.channel.createMessage('Your betrayal status has been reset')
+    UpdateReputation(target)
+    await msg.channel.createMessage(
+      `${target.username}#${
+        target.discriminator
+      }'s betrayal status has been reset`
+    )
     return
   },
   {
