@@ -23,6 +23,10 @@ client.registerCommand(
     if (dbUser.ownedCircle) {
       memberOf = memberOf - 1 // -1 to account for their owned circle
       membersOfCircle = dbUser.ownedCircle.members.length - 1 // -1 to account for owner
+      if (dbUser.ownedCircle.betrayed) {
+        membersOfCircle = 0
+        memberOf = memberOf + 1
+      }
     }
     embed
       .setColor(process.env.COLOR_GREEN as string)
