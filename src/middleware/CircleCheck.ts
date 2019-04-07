@@ -8,6 +8,28 @@ export default async (msg: Message, owner: boolean = false) => {
       channel: msg.channel.id
     }
   })
+  if (!circle) {
+    msg.delete()
+    let embed = new RichEmbed()
+    embed
+      .setColor(process.env.COLOR_RED as string)
+      .setErisAuthor(msg.author)
+      .setTitle(`${process.env.EMOJI_XMARK} Circle-Only`)
+      .setDescription(
+        'This command is circle-only. Please execute the command inside of a circle.'
+      )
+      .setTimestamp()
+    msg.channel
+      .createMessage({
+        embed: embed.toJSON()
+      })
+      .then(msg => {
+        setTimeout(() => {
+          msg.delete()
+        }, 5000)
+      })
+    return false
+  }
   if (circle && circle.owner) {
     if (msg.author.id !== circle!.owner.id && owner) {
       msg.delete()
@@ -33,25 +55,4 @@ export default async (msg: Message, owner: boolean = false) => {
     }
     return circle
   }
-
-  msg.delete()
-  let embed = new RichEmbed()
-  embed
-    .setColor(process.env.COLOR_RED as string)
-    .setErisAuthor(msg.author)
-    .setTitle(`${process.env.EMOJI_XMARK} Circle-Only`)
-    .setDescription(
-      'This command is circle-only. Please execute the command inside of a circle.'
-    )
-    .setTimestamp()
-  msg.channel
-    .createMessage({
-      embed: embed.toJSON()
-    })
-    .then(msg => {
-      setTimeout(() => {
-        msg.delete()
-      }, 5000)
-    })
-  return false
 }
