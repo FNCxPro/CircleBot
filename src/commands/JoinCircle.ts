@@ -70,6 +70,8 @@ client.registerCommand(
   },
   {
     dmOnly: true,
-    aliases: ['joincircle']
+    aliases: ['joincircle'],
+    description: 'Join a circle (**DM ONLY**)',
+    usage: `c!join <1_word_name> <long key>`
   }
 )

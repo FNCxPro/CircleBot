@@ -41,6 +41,9 @@ client.registerCommand(
     return { embed }
   },
   {
-    aliases: ['rep']
+    aliases: ['rep'],
+    description: 'Get the reputation of a user',
+    fullDescription: 'Get the reputation of a user',
+    usage: 'c!reputation <@252509640774909952>'
   }
 )

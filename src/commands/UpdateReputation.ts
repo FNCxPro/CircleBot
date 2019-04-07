@@ -16,6 +16,8 @@ client.registerCommand(
     return { embed }
   },
   {
-    aliases: ['updaterep', 'update']
+    aliases: ['updaterep', 'update'],
+    description: 'Update your reputation if it has fallen behind real-time',
+    usage: 'c!updatereputation'
   }
 )

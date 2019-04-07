@@ -147,6 +147,8 @@ client.registerCommand(
     ],
     reactionButtonTimeout: 15000,
     dmOnly: true,
-    aliases: ['createcircle']
+    aliases: ['createcircle'],
+    description: 'Create your own circle (**DM ONLY**)',
+    usage: `c!create <1_word_name> <long key>`
   }
 )

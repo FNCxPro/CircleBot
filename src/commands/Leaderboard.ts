@@ -34,6 +34,15 @@ client.registerCommand(
     return leaderboardMessage
   },
   {
-    aliases: ['lb']
+    aliases: ['lb'],
+    cooldown: 5 * 60 * 1000, // 5 minutes
+    cooldownMessage:
+      'This command is on cooldown for **5 minutes** to prevent unnecessary load on the database.',
+    cooldownExclusions: {
+      userIDs: [process.env.BOT_OWNER as string]
+    },
+    description:
+      'Show the leaderboard of circles. This command has a 5 minute cooldown.',
+    usage: `c!leaderboard`
   }
 )
