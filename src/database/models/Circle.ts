@@ -39,7 +39,8 @@ export default class Circle extends BaseEntity {
   betrayed: boolean
 
   @Column({
-    nullable: true
+    nullable: true,
+    default: 0
   })
   upgrade: number
 
