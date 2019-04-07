@@ -23,7 +23,7 @@ client.registerCommand(
     let index = 1
     sorted.forEach(circle => {
       let owner = client.users.get(circle.owner.id)!
-      leaderboardMessage += `#${index.toString} - ${circle.name}\n${
+      leaderboardMessage += `#${index.toString()} - ${circle.name}\n${
         circle.members.length
       } members (including owner)\nOwned by ${owner.username}#${
         owner.discriminator
