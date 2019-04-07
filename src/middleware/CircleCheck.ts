@@ -29,6 +29,7 @@ export default async (msg: Message, owner: boolean = false) => {
             msg.delete()
           }, 5000)
         })
+      return false
     }
     return circle
   }
