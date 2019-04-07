@@ -2,7 +2,7 @@ import { Message, EmbedOptions } from 'eris'
 import RichEmbed from '~/embed'
 
 export default (msg: Message) => {
-  if (msg.author.id === '346676896794279937') return true
+  if (msg.author.id === process.env.BOT_OWNER) return true
   let embed = new RichEmbed()
   embed
     .setColor(process.env.COLOR_RED as string)
