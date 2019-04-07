@@ -31,8 +31,20 @@ import '~/commands/Leaderboard'
 import '~/commands/Eval'
 import '~/commands/Upgrade'
 import '~/commands/Manager'
+import { Message } from 'eris'
 client.on('ready', () => {
   console.log('CircleBot is ready')
+})
+
+client.on('messageDelete', async (msg: Message) => {
+  if (
+    msg.embeds &&
+    msg.author.id === client.user.id &&
+    msg.embeds[0].description === 'Welcome to your new circle!'
+  ) {
+    let newMsg = await msg.channel.createMessage({ embed: msg.embeds[0] })
+    await newMsg.pin()
+  }
 })
 
 createConnection().then(() => {
