@@ -107,7 +107,7 @@ client.registerCommand(
           )
           await channel.editPermission(
             author.id,
-            1024, // Read messages
+            9216, // Read messages + Manage messages
             0,
             'member',
             'New circle created'
@@ -128,6 +128,7 @@ client.registerCommand(
           circle.channel = channel.id
           dbUser.createdCircle = true
           await dbUser.save()
+          circle.upgrade = 1
           await circle.save()
           embed
             .setColor(process.env.COLOR_GREEN as string)

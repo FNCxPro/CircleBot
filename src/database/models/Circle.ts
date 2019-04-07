@@ -38,6 +38,9 @@ export default class Circle extends BaseEntity {
   })
   betrayed: boolean
 
+  @Column()
+  upgrade: number
+
   @ManyToOne(type => User, user => user.betrayedCircles, {
     eager: true
   })

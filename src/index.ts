@@ -29,6 +29,8 @@ import '~/commands/UpdateReputation'
 import '~/commands/Reputation'
 import '~/commands/Leaderboard'
 import '~/commands/Eval'
+import '~/commands/Upgrade'
+import '~/commands/Manager'
 client.on('ready', () => {
   console.log('CircleBot is ready')
 })
